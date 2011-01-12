@@ -1,0 +1,38 @@
+(add-to-list 'load-path "/home/jason/Software/cedet-1.0pre7/common")
+(set-default-font "courier 10 pitch-9")
+(global-linum-mode t)
+(global-set-key [(f11)] 'speedbar)
+(setq default-frame-alist
+      (append
+       '((font . "courier 10 pitch-9")) default-frame-alist))
+
+(setq ecb-tip-of-the-day nil)
+;;(global-set-key [f11] 'ecb-activate)
+(require 'cedet)
+(require 'semantic-ia)
+ 
+;; Enable EDE (Project Management) features
+(global-ede-mode 1)
+;;(semantic-load-enable-minimum-features)
+(semantic-load-enable-code-helpers)
+(semantic-load-enable-guady-code-helpers)
+(semantic-load-enable-excessive-code-helpers)
+(semantic-load-enable-semantic-debugging-helpers)
+ 
+;; Enable SRecode (Template management) minor-mode.
+(global-srecode-minor-mode 1)
+
+(global-set-key [f12] 'semantic-ia-fast-jump)
+(define-key c-mode-base-map (kbd "M-n") 'semantic-ia-complete-symbol-menu)
+
+(add-to-list 'load-path "/home/jason/Software/cedet-1.0pre7/contrib")
+(require 'eassist nil 'noerror)
+(define-key c-mode-base-map [M-f12] 'eassist-switch-h-cpp)
+
+
+(require 'semantic-tag-folding nil 'noerror)
+(global-semantic-tag-folding-mode 1)
+
+;; scim
+(when (require 'scim-brige nil 'noerror)
+  (add-hook 'after-init-hook 'scim-mode-on)
