@@ -18,11 +18,12 @@
 (semantic-load-enable-guady-code-helpers)
 (semantic-load-enable-excessive-code-helpers)
 (semantic-load-enable-semantic-debugging-helpers)
- 
+(global-semantic-stickyfunc-mode -1) 
 ;; Enable SRecode (Template management) minor-mode.
 (global-srecode-minor-mode 1)
-
+(require 'cc-mode)
 (global-set-key [f12] 'semantic-ia-fast-jump)
+
 (define-key c-mode-base-map (kbd "M-n") 'semantic-ia-complete-symbol-menu)
 
 (add-to-list 'load-path "/home/jason/Software/cedet-1.0pre7/contrib")
@@ -34,5 +35,14 @@
 (global-semantic-tag-folding-mode 1)
 
 ;; scim
-(when (require 'scim-brige nil 'noerror)
-  (add-hook 'after-init-hook 'scim-mode-on)
+;;(when (require 'scim-brige nil 'noerror)
+;;(add-hook 'after-init-hook 'scim-mode-on)
+
+;; tabbar
+(require 'tabbar)
+(tabbar-mode)
+(define-prefix-command 'lwindow-map)
+(global-set-key (kbd "<M-up>") 'tabbar-backward-group)
+(global-set-key (kbd "<M-down>") 'tabbar-forward-group)
+(global-set-key (kbd "<M-left>") 'tabbar-backward)
+(global-set-key (kbd "<M-right>") 'tabbar-forward)
