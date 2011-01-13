@@ -1,0 +1,8 @@
+01/13/2010 
+I use it on ubuntu10.10.
+---------------------------------------
+tabbar need:
+sudo apt-get install emacs-goodies-el
+
+see:
+emacs.png
