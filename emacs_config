@@ -1,4 +1,4 @@
-(add-to-list 'load-path "/home/jason/Software/cedet-1.0pre7/common")
+(add-to-list 'load-path "/home/jason/Documents/cedet-1.0pre7/common")
 (set-default-font "courier 10 pitch-9")
 (global-linum-mode t)
 (global-set-key [(f11)] 'speedbar)
@@ -26,7 +26,7 @@
 
 (define-key c-mode-base-map (kbd "M-n") 'semantic-ia-complete-symbol-menu)
 
-(add-to-list 'load-path "/home/jason/Software/cedet-1.0pre7/contrib")
+(add-to-list 'load-path "/home/jason/Documents/cedet-1.0pre7/contrib")
 (require 'eassist nil 'noerror)
 (define-key c-mode-base-map [M-f12] 'eassist-switch-h-cpp)
 
@@ -46,3 +46,7 @@
 (global-set-key (kbd "<M-down>") 'tabbar-forward-group)
 (global-set-key (kbd "<M-left>") 'tabbar-backward)
 (global-set-key (kbd "<M-right>") 'tabbar-forward)
+
+;; doxymacs
+(require 'doxymacs)
+(add-hook 'c-mode-common-hook 'doxymacs-mode)
